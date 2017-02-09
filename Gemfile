@@ -11,7 +11,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim', '~> 3.0', '>= 3.0.7'
-
+gem 'devise', '~> 4.2'
+gem 'simple_form', '~> 3.4'
+gem 'paperclip', '~> 5.1'
 
 group :development, :test do
   gem 'byebug'
