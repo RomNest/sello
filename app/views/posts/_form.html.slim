@@ -1,6 +1,7 @@
 = simple_form_for @post do |f|
 	= f.input :image
 	= f.input :title
+	= f.collection_select :id, Category.order(:name), :id, :name, {include_blank: "Select category"}
 	= f.input :description
 
 	= f.button :submit
