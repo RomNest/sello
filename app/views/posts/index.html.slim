@@ -4,6 +4,9 @@
 	p
 		= post.comments.count 
 		|  Comments
+	p
+		= post.get_likes.size
+		|  Likes
 
 = link_to "Add new post", new_post_path
 = link_to "Add new category", new_category_path

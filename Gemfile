@@ -15,6 +15,7 @@ gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.4'
 gem 'paperclip', '~> 5.1'
 gem 'coffee-script-source', '1.8.0'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'

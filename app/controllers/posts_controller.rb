@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
-	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -25,8 +25,7 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def edit
-	end
+	def edit;end
 
 	def update
 		if @post.update(post_params)
@@ -39,6 +38,16 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		redirect_to root_path
+	end
+
+	def upvote
+		@post.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@post.downvote_from current_user
+		redirect_to :back
 	end
 
 	private
