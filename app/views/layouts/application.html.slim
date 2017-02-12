@@ -3,11 +3,26 @@ html
   head
   title Sello
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
-
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
   body
-  	p class="notice" = notice
-  	p class="alert" = alert
+
+    - if alert
+      p#notice_wrapper.alert = alert
+    - elsif notice
+      p#notice_wrapper.notice = notice 
+  	header
+      .wrapper.clearfix
+        #logo= link_to "Sello", root_path
+        nav
+          - if user_signed_in?
+            = link_to current_user.name, edit_user_registration_path
+            = link_to 'Logout', destroy_user_session_path, :method => :delete
+            = link_to "Add New Post", new_post_path, class: "button"
+          - else
+            = link_to "Sign in", new_user_session_path
+            = link_to "Sign Up", new_user_registration_path, class: "button"
     
-	= yield 
+    .wrapper
+		= yield 
 

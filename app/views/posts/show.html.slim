@@ -1,20 +1,55 @@
-= image_tag @post.image.url(:medium)
-h1= @post.title
-p= @post.category
-p= @post.description
-p= @post.user.name
-p
-	= @post.get_upvotes.size
-	|  Likes
-p
-	= @post.get_downvotes.size
-	|  Dislikes
+#post_show
+	h1= @post.title
+	p.username
+		| Shared by 
+		strong = @post.user.name 
+		| &nbsp;about&nbsp;
+		= time_ago_in_words(@post.created_at) 
+		| &nbsp;ago
+	.clearfix
+		.post_image_description
+			= image_tag @post.image.url(:medium)
+			.description= simple_format(@post.description)
+		.post_data
+			= link_to like_post_path(@post), method: :get, class: "data" do
+				i.glyphicon.glyphicon-thumbs-up
+				| &nbsp;
+				= pluralize(@post.get_upvotes.size, "Like")
+			= link_to dislike_post_path(@post), method: :get, class: "data" do
+				i.glyphicon.glyphicon-thumbs-down
+				| &nbsp;
+				= pluralize(@post.get_downvotes.size, "Dislike")
+			p.data
+				i.glyphicon.glyphicon-comment
+				| &nbsp;
+				= pluralize(@post.comments.count, "Comment")
+			- if @post.user == current_user
+				= link_to "Edit", edit_post_path(@post), class: "data"
+				= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
+			= link_to "Home", root_path, class: "data"
+		#random_post
+			h2 Random Post
+			.post
+				.post_image
+					= link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)
+				.post_content
+					.title
+						h2= link_to @random_post.title, post_path(@random_post)
+					.data.clearfix
+						p.username
+							| Shared by 
+							strong = @post.user.name
+						p.buttons
+							span
+								i.glyphicon.glyphicon-comment
+								| &nbsp;
+								= @random_post.comments.count
+							span
+								i.glyphicon.glyphicon-thumbs-up
+								| &nbsp;
+								= @random_post.get_likes.size
 
-= link_to "Like", like_post_path(@post), method: :get
-br
-= link_to "Dislike", dislike_post_path(@post), method: :get
-
-#comment
+#comments
 	h2.comment_count = pluralize(@post.comments.count, "Comment")
 	- @comments.each do |comment|
 		.comment
@@ -22,7 +57,3 @@ br
 			p.content = comment.content
 
 	= render 'comments/form'
-
-= link_to "Edit", edit_post_path(@post)
-= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
-= link_to "Home", root_path
