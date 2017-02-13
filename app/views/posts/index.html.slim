@@ -34,4 +34,5 @@ div id = "posts"
 							i.glyphicon.glyphicon-thumbs-up
 							| &nbsp;
 							= post.get_likes.size
-
+div class = "paginate_for"
+	= will_paginate @post
