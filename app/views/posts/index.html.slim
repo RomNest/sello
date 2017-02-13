@@ -12,7 +12,7 @@
 		br/
 		span Share your post or see what's sharing others.
 
-#posts
+div id = "posts"
 	- @posts.each do |post|
 		.post
 			.post_image
@@ -34,3 +34,4 @@
 							i.glyphicon.glyphicon-thumbs-up
 							| &nbsp;
 							= post.get_likes.size
+

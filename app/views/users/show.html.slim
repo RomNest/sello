@@ -1,10 +1,14 @@
-h1 Users#show
-
-= @user.name
-br/
-= @user.email
-
-
+p#intro
+	|
+		Hello 
+	= current_user.name
+	br/
+	span It's your profile page :)
+h4#header_for_edit_user
+	= link_to "Click here to edit your profile information.", edit_user_registration_path
+hr
+p#intro
+	| It's your post`s:
 #posts
 	- @user_posts.each do |post|
 		.post
