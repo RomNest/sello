@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users
   
   resources :posts do
@@ -14,4 +16,6 @@ Rails.application.routes.draw do
   resources :categories
   
   root 'posts#index'
+
+  resources :users, :only => [:show]
 end
