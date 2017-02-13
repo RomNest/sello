@@ -1,21 +1,25 @@
 #form
 	.wrapper_skinny
 		= form_for @post, remote: true do |f|
-			#sign_in
+			.form_inform_in
 				= f.label "Title:"
 				= f.text_field :title, :autofocus => true, class: "form-control", placeholder: "Title"
-			#sign_in
+			.form_in
 				= f.label "Upload image:"
-				= f.file_field :image, class: "form-control"
-
-			#sign_in
+				br/
+				span.btn.button.btn-file
+					= f.label "Browse", class: "browse_image input-group", for: "file_field"
+					= f.file_field :image, id: "file_field"
+				#img_block
+					img#img-upload /
+			.form_in
 				= f.label "Select post category:"
 				= f.collection_select :id, Category.order(:name), :id, :name, {include_blank: "Select category"}, class: "form-control"
-			#sign_in
+			.form_in
 				= f.label "Description:"
 				= f.text_field :description, :autofocus => true, class: "form-control", placeholder: "Description"
 
-			#sign_in
+			.form_in
 			= f.submit "Create a post", remote: true, class:"btn button btn-block"
-		#sign_in
+		.form_in
 			= link_to "Home", root_path, class:"btn button btn-block"

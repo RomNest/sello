@@ -3,25 +3,25 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <h1 id="header_sign_top">Registration</h1>
 
-      <div id="sign_in">
+      <div class="sign_in">
         <%= f.text_field :name, required: true, autofocus: true, class: "form-control", placeholder: "Name" %>
       </div>
 
-      <div id="sign_in">
+      <div class="sign_in">
         <%= f.email_field :email, class: "form-control", placeholder: "Email" %><br>
       </div>
 
       <h4 id="header_sign_down">Please, be careful with next step :)</h4>
 
-      <div id="sign_in">
+      <div class="sign_in">
         <%= f.password_field :password, required: true, class: "form-control", placeholder: "Password", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       </div>
 
-      <div id="sign_in">
+      <div class="sign_in">
         <%= f.password_field :password_confirmation, required: true, class: "form-control", placeholder: "Please, confirm your password" %>
       </div>
 
-      <div id="sign_in"><%= f.submit "Sign up", remote: true, class:"btn button btn-block" %><br></div>
+      <div class="sign_in"><%= f.submit "Sign up", remote: true, class:"btn button btn-block" %><br></div>
 
     <% end %>
   </div>

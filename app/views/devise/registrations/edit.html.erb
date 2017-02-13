@@ -4,11 +4,11 @@
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-        <div id="sign_in">
+        <div class="sign_in">
           <%= f.label "Name:" %>
           <%= f.text_field :name, required: true, autofocus: true, class: "form-control", placeholder: "Name" %>
         </div>
-        <div id="sign_in">
+        <div class="sign_in">
           <%= f.label "Email:" %>
           <%= f.email_field :email, required: true, autofocus: true, class: "form-control", placeholder: "Name" %>
         </div>
@@ -17,21 +17,21 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <div id="sign_in">
+        <div class="sign_in">
           <%= f.label "password:" %>
           <%= f.password_field :password, autocomplete: "off", placeholder: "Leave it blank if you don't want to change it", required: false, class: "form-control" %>
         </div>
-        <div id="sign_in">
+        <div class="sign_in">
           <%= f.label "Password confirmation:" %>  
           <%= f.password_field :password_confirmation, class: "form-control", required: false, placeholder: "Password confirmation for the previous step" %>
         </div>
-        <div id="sign_in">
+        <div class="sign_in">
           <%= f.label "Current password:" %>
           <%= f.password_field :current_password, placeholder: "We need your current password to confirm your changes", class: "form-control", required: true %>
         </div>
 
-      <div id="sign_in"><%= f.submit "Update", remote: true, class:"btn button btn-block" %><br></div>
-      <div id="header_sign_down">
+      <div class="sign_in"><%= f.submit "Update", remote: true, class:"btn button btn-block" %><br></div>
+      <div class="header_sign_down">
         <h3 >Cancel my account</h3>
         <h4>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></h4>
       </div>

@@ -2,21 +2,18 @@
 	<div class="wrapper_skinny">
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 			<h1 id="header_sign_top">Log in</h1>
-			<div id="sign_in">
+			<div class="sign_in">
 				<%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email" %><br>
 			</div>
-			<div id="sign_in">
+			<div class="sign_in">
 			<%= f.password_field :password, class: "form-control", placeholder: "Password" %><br></div>
-
-				<% if devise_mapping.rememberable? -%>
-					<div id="header_sign"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div><br>
+			<div class="sign_in"><%= f.submit "Sign in", remote: true, class:"btn button btn-block" %><br></div>
+			<% if devise_mapping.rememberable? -%>
+					<div>
+						<div id="links_sign_one"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+						<div id="links_sign_two"><%= render "devise/shared/links" %></div>
+					</div><br>
 				<% end -%>
-
-			<div id="sign_in"><%= f.submit "Sign in", remote: true, class:"btn button btn-block" %><br></div>
-			<div id="header_sign">
-				<%= render "devise/shared/links" %>
-			</div>
-
 		<% end %>
 	</div>
 </div>
