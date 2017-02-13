@@ -1,9 +1,21 @@
-= simple_form_for @post, remote: true do |f|
-	= f.input :image
-	= f.input :title
-	= f.collection_select :id, Category.order(:name), :id, :name, {include_blank: "Select category"}
-	= f.input :description
+#form
+	.wrapper_skinny
+		= form_for @post, remote: true do |f|
+			#sign_in
+				= f.label "Title:"
+				= f.text_field :title, :autofocus => true, class: "form-control", placeholder: "Title"
+			#sign_in
+				= f.label "Upload image:"
+				= f.file_field :image, class: "form-control"
 
-	= f.button :submit
+			#sign_in
+				= f.label "Select post category:"
+				= f.collection_select :id, Category.order(:name), :id, :name, {include_blank: "Select category"}, class: "form-control"
+			#sign_in
+				= f.label "Description:"
+				= f.text_field :description, :autofocus => true, class: "form-control", placeholder: "Description"
 
-= link_to "Home", root_path
+			#sign_in
+			= f.submit "Sign in", remote: true, class:"btn button btn-block"
+		#sign_in
+			= link_to "Home", root_path, class:"btn button btn-block"
