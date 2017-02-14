@@ -4,7 +4,12 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+		if params[:category].blank?
+			@posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@posts = Post.where(category_id: @category_id).order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+		end
 	end
 
 	def show
@@ -58,6 +63,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :description, :image)
+		params.require(:post).permit(:title, :description, :image, :category_id)
 	end
 end

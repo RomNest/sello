@@ -1,7 +1,12 @@
-= simple_form_for  @category do |f| 
-    = f.label :name 
-    = f.text_field :name, class: "button"
+#form
+	.wrapper_skinny
+		= form_for  @category do |f| 
+    		.form_in
+				= f.label "Category:" 
+    			= f.text_field :name, :autofocus => true, class: "form-control", placeholder: "Category name"
 
-    = f.submit class: "button" 
+    		.form_in
+			= f.submit "Create a category", remote: true, class:"btn button btn-block"
 
-= link_to "Home", root_path
+		.form_in
+			= link_to "Home", root_path, class:"btn button btn-block"

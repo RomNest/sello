@@ -1,7 +1,7 @@
 #form
 	.wrapper_skinny
 		= form_for @post, remote: true do |f|
-			.form_inform_in
+			.form_in
 				= f.label "Title:"
 				= f.text_field :title, :autofocus => true, class: "form-control", placeholder: "Title"
 			.form_in
@@ -14,7 +14,7 @@
 					img#img-upload /
 			.form_in
 				= f.label "Select post category:"
-				= f.collection_select :id, Category.order(:name), :id, :name, {include_blank: "Select category"}, class: "form-control"
+				= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "Choose a category"}, class: "form-control"
 			.form_in
 				= f.label "Description:"
 				= f.text_field :description, :autofocus => true, class: "form-control", placeholder: "Description"

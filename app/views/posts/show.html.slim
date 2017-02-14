@@ -11,6 +11,7 @@
 			= image_tag @post.image.url(:medium)
 			.description= simple_format(@post.description)
 		.post_data
+			= @post.category && @post.category.name
 			= link_to like_post_path(@post), method: :get, class: "data" do
 				i.glyphicon.glyphicon-thumbs-up
 				| &nbsp;
