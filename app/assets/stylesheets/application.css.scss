@@ -1,9 +1,12 @@
 html {
 	font-size: 75% !important;
+	height: 100%;
 }
 body {
 	font-family: "Comic Sans MS" !important;
 	font-weight: 100;
+	position: relative;
+	padding-bottom: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,10 +72,6 @@ header {
 			}
 		}
 	}
-}
-
-.copyright {
-	text-align: center;
 }
 
 @import 'bootstrap-sprockets';
