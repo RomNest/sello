@@ -31,7 +31,7 @@
         </div>
 
       <div class="sign_in"><%= f.submit "Update", remote: true, class:"btn button btn-block" %><br></div>
-      <div class="header_sign_down">
+      <div id="header_for_edit_user">
         <h3 >Cancel my account</h3>
         <h4>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></h4>
       </div>
