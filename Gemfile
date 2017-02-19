@@ -20,6 +20,7 @@ gem 'paperclip', '~> 5.1'
 gem 'coffee-script-source', '1.8.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug'

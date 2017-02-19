@@ -15,9 +15,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.turbolinks
 $(document).ready(function(){
 	setTimeout(function(){
     $('#notice_wrapper').fadeOut("slow", function(){
+      $this.remove();
+    });
+  }, 3500 );
+ });
+
+$(document).ready(function(){
+	setTimeout(function(){
+    $('#errors_wrapper').fadeOut("slow", function(){
       $this.remove();
     });
   }, 3500 );
@@ -33,11 +42,9 @@ $(document).ready( function() {
 		$('.btn-file :file').on('fileselect', function(event, label) {
 		    
 		    var input = $(this).parents('.input-group').find(':text'),
-		        log = label;
-		    
-		 
-	    
+		        log = label;	    
 		});
+
 		function readURL(input) {
 		    if (input.files && input.files[0]) {
 		        var reader = new FileReader();

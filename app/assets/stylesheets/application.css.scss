@@ -35,7 +35,14 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	font-weight: 500;
 }
-
+#errors_wrapper {
+	width: 50%;
+	position: absolute;
+	background: rgba(247, 250, 251, 0.85);
+	z-index: 999;
+	text-align: center;
+	font-weight: 500;
+}
 .button {
 	border: 1px solid #9B9B9B;
 	padding: .7rem 1.25rem;

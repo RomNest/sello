@@ -1,9 +1,16 @@
 #form
 	.wrapper_skinny
-		= form_for  @category do |f| 
+		= form_for  @category do |f|
+			#errors_wrapper
+				- if @category.errors.any?
+					h2 
+						= pluralize(@category.errors.count, "error")
+					ul
+						- @category.errors.full_messages.each do |msg|
+							p = msg 
     		.form_in
 				= f.label "Category:" 
-    			= f.text_field :name, :autofocus => true, class: "form-control", placeholder: "Category name"
+    			= f.text_field :name, :autofocus => true, class: "form-control", placeholder: "Category name. Minimum 5. Maximum 15 chars."
 
     		.form_in
 			= f.submit "Create a category", remote: true, class:"btn button btn-block"

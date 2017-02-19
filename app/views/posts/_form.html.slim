@@ -1,9 +1,20 @@
 #form
 	.wrapper_skinny
-		= form_for @post, remote: true do |f|
+		= form_for @post do |f|
+			#errors_wrapper
+				- if @post.errors.any?
+					h2 
+						= pluralize(@post.errors.count, "error")
+					ul
+						- @post.errors.full_messages.each do |msg|
+							p = msg
+
 			.form_in
 				= f.label "Title:"
-				= f.text_field :title, :autofocus => true, class: "form-control", placeholder: "Title"
+				= f.text_field :title, :autofocus => true, class: "form-control", placeholder: "Title. Minimum 6. Maximum 20 chars."
+			.form_in
+				= f.label "Price:"
+				= f.text_field :price, class: "form-control", placeholder: "Price. Sure that your price look like 22.2"
 			.form_in
 				= f.label "Upload image:"
 				br/
@@ -17,7 +28,7 @@
 				= f.collection_select :category_id, Category.all, :id, :name, {include_blank: "Choose a category"}, class: "form-control"
 			.form_in
 				= f.label "Description:"
-				= f.text_field :description, :autofocus => true, class: "form-control", placeholder: "Description"
+				= f.text_field :description, :autofocus => true, class: "form-control", placeholder: "Description. Minimum 10. Maximum 800 chars."
 
 			.form_in
 			= f.submit "Create a post", remote: true, class:"btn button btn-block"
