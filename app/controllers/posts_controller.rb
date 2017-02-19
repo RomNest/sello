@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(post_params)
 
 		if @post.save
-			redirect_to @post
+			redirect_to @post, notice: "Hey, #{current_user}. Your post was successfully created."
 		else
 			render 'new'
 		end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			redirect_to @post
+			redirect_to @post, notice: "Hey, #{current_user}. Your post was successfully updated."
 		else
 			render 'edit'
 		end
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
-		redirect_to root_path
+		redirect_to root_path, notice: "Hey, #{current_user}. Your post was successfully created."
 	end
 
 	def upvote

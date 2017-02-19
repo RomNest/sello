@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
 
 		if @category.save
-			redirect_to @category
+			redirect_to @category, notice: "Hey, #{current_user}. Your category was successfully created."
 		else
 			render 'new'
 		end
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 	def update
 
 		if @category.update(category_params)
-			redirect_to @category
+			redirect_to @category, notice: "Hey, #{current_user}. Your category was successfully updated."
 		else
 			render 'edit'
 		end
