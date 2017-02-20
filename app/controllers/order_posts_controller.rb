@@ -17,7 +17,7 @@ class OrderPostsController < ApplicationController
   def create
     @cart = current_cart
     post = Post.find(params[:post_id])
-    @order_post = @cart.order_posts.build
+    @order_post = @cart.add_post(post.id)
     @order_post.post = post
 
       if @order_post.save
