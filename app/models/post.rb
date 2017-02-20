@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	belongs_to :category
 
+	has_many :order_posts
+
 	has_attached_file :image, styles: { medium: "700x500#", small: "350x250#" }
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
@@ -13,4 +15,16 @@ class Post < ActiveRecord::Base
   	validates :image, presence: true
   	validates_numericality_of :price, :greater_than_or_equal_to => 0
   	
+  	before_destroy :ensure_not_referenced_by_any_line_item
+ 
+	private
+ 
+    def ensure_not_referenced_by_any_line_item
+      if order_posts.empty?
+        return true
+      else
+        errors.add(:base, 'Order post present')
+        return false
+      end
+    end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :carts
+  resources :order_posts
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_posts, only: [:create, :update, :destroy]
 
   devise_for :users
   

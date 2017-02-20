@@ -37,8 +37,7 @@
 				strong Price: 
 				= @post.price
 				|  $
-				.button
-					= link_to "Add to cart"
+			= button_to "Add to Cart", order_posts_path(:post_id => @post), class: "button"
 		#random_post
 			h2 Random Post
 			.post
