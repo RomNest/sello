@@ -6,4 +6,7 @@ class OrderPost < ActiveRecord::Base
     post.price * quantity
   end
 
+  def get_quantity
+  	quantity
+  end
 end

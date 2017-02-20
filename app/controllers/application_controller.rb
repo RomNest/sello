@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_cart
+  before_action :init_cart
   before_filter :configure_permitted_parameters, if: :devise_controller?
   private
 
@@ -13,7 +14,11 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = cart.id
       cart
     end
-    
+
+    def init_cart
+      @cart = current_cart
+    end
+
 	protected
 
 	def configure_permitted_parameters
