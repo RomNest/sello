@@ -81,6 +81,14 @@ header {
 	}
 }
 
+#cart_links {
+	text-align: center;
+	a {
+		margin: 1rem;
+		width: 5rem;
+	}
+}
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'index.css.scss';

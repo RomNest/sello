@@ -6,7 +6,8 @@ class Post < ActiveRecord::Base
 	belongs_to :category
 
 	has_many :order_posts
-
+  has_many :orders, :through => :order_posts
+  
 	has_attached_file :image, styles: { medium: "700x500#", small: "350x250#" }
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 

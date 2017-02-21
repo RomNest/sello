@@ -1,0 +1,21 @@
+h2#header_sign_top Your Cart
+.wrapper
+  table.table.table-striped
+    thead
+      th Quantity
+      th Post name
+      th Price
+      - @cart.order_posts.each do |order| 
+        tr
+          td= order.quantity
+          td= order.post.title
+          td= number_to_currency(order.total_price)
+      tr
+        td 
+          strong Total
+        td
+        td
+          strong = number_to_currency(@cart.total_price)
+  #cart_links
+    = link_to "Checkout", new_order_path, :method => :get, class: "button" 
+    = link_to 'Make my cart free', @cart, :method => :delete, data: { confirm: "Are you sure?" }, class: "button"

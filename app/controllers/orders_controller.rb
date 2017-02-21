@@ -2,26 +2,35 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = Order.paginate(:page=>params[:page], :order=>'created_at desc',
+      :per_page=>10)
   end
 
-  def show
-  end
+  def show;end
 
   def new
+    @cart = current_cart
+    if @cart.order_posts.empty?
+      redirect_to root_path, :notice => "Your cart is empty"
+      return
+    end
+ 
     @order = Order.new
   end
 
-  def edit
-  end
+  def edit;end
 
   def create
     @order = Order.new(order_params)
+    @order.add_order_posts_from_cart(current_cart)
 
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
-      else
-      render 'new'
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to root_path, notice: 'Thank you for your order.'
+    else
+      @cart = current_cart
+      render 'new' 
     end
   end
 

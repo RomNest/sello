@@ -23,7 +23,8 @@ html
           - else
             = link_to "Sign in", new_user_session_path
             = link_to "Sign Up", new_user_registration_path, class: "button"
-          = link_to "#{@cart.order_posts.size} Items in Cart ( #{number_to_currency @cart.total_price} )", @cart, class: "button"
+          = link_to "#{@cart.order_posts.size} Items in Cart ( #{number_to_currency @cart.total_price} )", @cart, 
+          class: "button"
     .wrapper
 		= yield 
 

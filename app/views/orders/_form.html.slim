@@ -1,0 +1,35 @@
+#form
+  .wrapper_skinny
+    = form_for @order do |f|
+      #errors_wrapper
+        - if @order.errors.any?
+          h2 
+            = pluralize(@order.errors.count, "error")
+          ul
+            - @order.errors.full_messages.each do |msg|
+              p = msg
+
+      .form_in
+        = f.label "Enter your full name:"
+        = f.text_field :full_name, :autofocus => true, class: "form-control", placeholder: "Full name. For example John Smith"
+
+      .form_in
+        = f.label "Enter your address:"
+        = f.text_area :address, class: "form-control", placeholder: "Your address must be here."
+
+      .form_in
+        = f.label "Enter or check your email:"
+        = f.text_field :email, class: "form-control", placeholder: "#{current_user.email}"
+
+      .form_in
+        = f.label "Enter your postcode:"
+        = f.number_field :postcode, class: "form-control", placeholder: "Your postcode must be here."
+
+      .form_in
+        = f.label "Choose a pay type:"
+        = f.collection_select :pay_type, Order::PAYMENT_TYPES, :to_s, :to_s, {include_blank: "Choose a pay type"}, class: "form-control"
+
+      .form_in
+        = f.submit "Create a post", remote: true, class:"btn button btn-block"
+      .form_in
+        = link_to "Home", root_path, class:"btn button btn-block"

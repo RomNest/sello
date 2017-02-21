@@ -10,7 +10,7 @@
         </div>
         <div class="sign_in">
           <%= f.label "Email:" %>
-          <%= f.email_field :email, required: true, autofocus: true, class: "form-control", placeholder: "Name" %>
+          <%= f.email_field :email, required: true, autofocus: true, class: "form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
