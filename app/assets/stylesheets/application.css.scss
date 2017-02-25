@@ -6,7 +6,6 @@ body {
 	font-family: "Comic Sans MS" !important;
 	font-weight: 100;
 	position: relative;
-	padding-bottom: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,10 +83,16 @@ header {
 #cart_links {
 	text-align: center;
 	a {
-		margin: 1rem;
-		width: 5rem;
+		margin-left: 1.5rem;
+		line-height: 2;
+		color: #9B9B9B;
+		text-decoration: none !important;
+		&:hover {
+			color: #50A7C7;
+		}
 	}
 }
+
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';

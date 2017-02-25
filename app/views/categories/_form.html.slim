@@ -10,7 +10,7 @@
 							p = msg 
     		.form_in
 				= f.label "Category:" 
-    			= f.text_field :name, :autofocus => true, class: "form-control", placeholder: "Category name. Minimum 5. Maximum 15 chars."
+    			= f.text_field :name, :autofocus => true, class: "form-control", placeholder: "Category name. Minimum 2. Maximum 15 chars."
 
     		.form_in
 			= f.submit "Create a category", remote: true, class:"btn button btn-block"

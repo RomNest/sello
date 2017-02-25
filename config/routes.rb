@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :categories
-  
-  root 'posts#index'
+  resources :welcome
 
+
+  root 'posts#index'
   resources :users, :only => [:show]
 end

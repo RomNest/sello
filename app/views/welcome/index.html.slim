@@ -1,0 +1,92 @@
+nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation"
+        div class="container topnav"
+            div class="navbar-header"
+                button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    span class="sr-only" Toggle navigation
+                    span class="icon-bar"
+                    span class="icon-bar"
+                    span class="icon-bar"
+                a class="navbar-brand topnav page-scroll" href="#" Let`s try Sello
+
+            div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a class="page-scroll" href="#about" About
+                    li
+                        a class="page-scroll" href="#features" Features
+                    li
+                        a class="page-scroll" href="#contact" Contact
+
+div class="intro-header " id="about"
+    div class="container"
+
+        div class="row"
+            div class="col-lg-12"
+                div class="intro-message"
+                    h1 Welcome my fellow :)
+                    h3 Are you ready to use my sello?
+                    hr class="intro-divider"
+                    ul.list-inline.intro-social-buttons
+                        li
+                            = link_to "Let`s see my sello.", root_path, class: "btn btn-default btn-lg btn-about"
+                        li
+                            = link_to "Register now.", new_user_registration_path, class: "btn btn-default btn-lg btn-about"
+
+
+div class="content-section-a" id="services"
+
+    div class="container"
+        div class="row"
+            div class="col-lg-5 col-sm-6"
+                hr class="section-heading-spacer"
+                div class="clearfix"
+                h2 class="section-heading" Dude, sell your Post now:
+                    <br> Tip for you
+                p class="lead" Just create your own post from here -><a target="_blank" href="/posts/new"> Share your posts, click me :)</a>. One more thing, you can sell it. Yeas, you can sell your post! So, just join us and fell it.
+            div class="col-lg-5 col-lg-offset-2 col-sm-6"
+                = image_tag 'create.jpg', class: "img-responsive"
+
+div class="content-section-b"
+
+    div class="container"
+
+        div class="row"
+            div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6"
+                hr class="section-heading-spacer"
+                div class="clearfix"
+                h2 class="section-heading" Here you can <br> create your own category.
+                p class="lead" Just a few seconds for creating own catrgory, click this -> <a target="_blank" href="/categories/new">click me and crate your own category</a> and fell how it easy.
+            div class="col-lg-5 col-sm-pull-6  col-sm-6"
+                = image_tag 'category.jpg', class: "img-responsive"
+
+div class="content-section-a"
+
+    div class="container"
+
+        div class="row"
+            div class="col-lg-5 col-sm-6"
+                hr class="section-heading-spacer"
+                div class="clearfix"
+                h2 class="section-heading"Likes and Dislikes<br> for every post</h2>
+                p class="lead"Just look what shared other people -> <a target="_blank" href="http://www.google.com/fonts">clcik me</a>, and give them your like or dislike. One more thing, you can add some commet for every post what you wont, It`s really preatty for people )
+            div class="col-lg-5 col-lg-offset-2 col-sm-6"
+                = image_tag 'like.jpg', class: "img-responsive"
+
+div class="banner" id="contact"
+
+    div class="container"
+
+        div class="row"
+            div class="col-lg-6"
+                h2 Connect to Sello in social:
+            div class="col-lg-6"
+                ul class="list-inline banner-social-buttons"
+                    li
+                        a href="https://vk.com/tiki_piki" class="btn btn-default btn-lg btn-contact"
+                            i class="fa fa-vk fa-fw"
+                            span class="network-name" VK
+                    <li>
+                        a href="https://github.com/RomNest/sello" class="btn btn-default btn-lg btn-contact"
+                            i class="fa fa-github fa-fw"
+                            span class="network-name"Github
+  
