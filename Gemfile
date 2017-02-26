@@ -22,6 +22,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'jquery-turbolinks'
 gem "font-awesome-rails"
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug'
