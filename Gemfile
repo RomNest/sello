@@ -23,6 +23,8 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'jquery-turbolinks'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'byebug'

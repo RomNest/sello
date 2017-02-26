@@ -13,7 +13,7 @@ html
       p#notice_wrapper.notice = notice 
   	header
       .wrapper.clearfix
-        #logo= link_to "Sello", root_path
+        #logo= link_to "Sello", posts_path
         nav
           - if user_signed_in?
             = link_to current_user.name, current_user

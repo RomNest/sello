@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   resources :welcome
 
 
-  root 'posts#index'
+  root 'welcome#index'
   resources :users, :only => [:show]
 end
