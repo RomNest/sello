@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 	acts_as_votable
-
+  resourcify
 	belongs_to :user
 	has_many :comments
 	belongs_to :category

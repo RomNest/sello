@@ -4,7 +4,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  
+  after_create :assign_default_role
+  
   has_many :posts
   has_many :comments
+
+  private
+  	def assign_default_role
+  		self.add_role(:new_user) if self.roles.blank?
+  	end
 end

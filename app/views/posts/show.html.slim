@@ -27,7 +27,7 @@
 				| &nbsp;
 				= pluralize(@post.comments.count, "Comment")
 
-			- if @post.user == current_user
+			- if (@post.user == current_user) || (can? :destroy, @post) 
 				= link_to "Edit", edit_post_path(@post), class: "data"
 				= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
 			= link_to "Home", root_path, class: "data"
@@ -66,5 +66,4 @@
 		.comment
 			p.username = comment.user.name
 			p.content = comment.content
-
 	= render 'comments/form'

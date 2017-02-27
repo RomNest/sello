@@ -8,9 +8,10 @@ class CommentsController < ApplicationController
 		@comment.post_id = @post.id
 
 		if @comment.save
-			redirect_to post_path(@post), notice: "Hey, #{current_user}. Your comment was successfully created."
+			redirect_to post_path(@post), notice: "Hey, #{current_user.name}. Your comment was successfully created."
 		else
 			render 'new'
 		end
 	end
+
 end

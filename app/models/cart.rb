@@ -1,6 +1,7 @@
 class Cart < ActiveRecord::Base
 	has_many :order_posts, :dependent => :destroy
-
+  resourcify
+  
 	def add_post(post_id)
     	current_post = order_posts.find_by_post_id(post_id)
     	if current_post

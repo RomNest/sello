@@ -4,6 +4,10 @@ p#intro
 	= current_user.name
 	br/
 	span It's your profile page :)
+
+- if get_adm
+	p#intro You are admin bro!
+
 h4#header_for_edit_user
 	= link_to "Click here to edit your profile information.", edit_user_registration_path
 hr
@@ -32,3 +36,18 @@ p#intro
 							| &nbsp;
 							= post.get_likes.size
 = will_paginate @user_posts
+
+- if get_adm
+	hr
+	h2#header_sign_top Your Users
+	.wrapper
+    	table.table.table-striped
+    		thead
+    			th ID
+    			th Name
+    			th Email
+			- @users.each do |user|
+				tr
+					td= user.id
+					td= user.name
+					td= user.email
