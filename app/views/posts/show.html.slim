@@ -27,7 +27,7 @@
 				| &nbsp;
 				= pluralize(@post.comments.count, "Comment")
 
-			- if (@post.user == current_user) || (can? :destroy, @post) 
+			- if (@post.user == current_user) || (current_user.has_role? :admin)
 				= link_to "Edit", edit_post_path(@post), class: "data"
 				= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
 			= link_to "Home", root_path, class: "data"

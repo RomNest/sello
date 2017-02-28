@@ -2,8 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all.paginate(:page=>params[:page], :order=>'created_at desc',
-      :per_page=>10)
+    @orders = Order.all
   end
 
   def show;end

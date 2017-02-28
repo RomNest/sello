@@ -30,6 +30,6 @@
         = f.collection_select :pay_type, Order::PAYMENT_TYPES, :to_s, :to_s, {include_blank: "Choose a pay type"}, class: "form-control"
 
       .form_in
-        = f.submit "Create a post", remote: true, class:"btn button btn-block"
+        = f.submit "Let`s buy", remote: true, class:"btn button btn-block"
       .form_in
         = link_to "Home", root_path, class:"btn button btn-block"

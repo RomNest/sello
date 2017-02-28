@@ -1,0 +1,25 @@
+h2#header_sign_top Listing Orders
+.wrapper
+  table.table.table-striped
+    thead
+      tr
+        th Full name
+        th Address
+        th Email
+        th Postcode
+        th Pay type
+
+    tbody
+      - @orders.each do |order|
+        tr
+          td= order.full_name
+          td= order.address
+          td= order.email
+          td= order.postcode
+          td= order.pay_type
+          td= link_to 'Show', order
+          td= link_to 'Edit', edit_order_path(order)
+          td= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }
+
+br
+
